@@ -90,13 +90,13 @@ summary(m_N2O)
 AIC(m_N2O)
 
 drop1(m_N2O,test="Chisq")
-#ÕıÌ¬ĞÔ¼ìÑé
+#æ­£æ€æ€§æ£€éªŒ
 crPlots(m_N2O)
-#QQÍ¼
+#QQå›¾
 qqPlot(m_N2O,labels = row.names(states),id.method = "identify",simulate = TRUE,main = "Q-Q Plot")
-#²Ğ²îÍ¼
+#æ®‹å·®å›¾
 ncvTest(m_N2O)
-#Îó²î×ÔÏà¹ØĞÔ
+#è¯¯å·®è‡ªç›¸å…³æ€§
 durbinWatsonTest(m_N2O)
 y.res=resid(m_N2O)
 y.fit=predict(m_N2O)
@@ -105,7 +105,7 @@ plot(y.res~y.fit)
 qqnorm(y.res)
 hist(y.res)
 
-#µ¼³öRMSE
+#å¯¼å‡ºRMSE
 RSE<- summary(m_N2O)$sigma
 RSE
 
@@ -143,7 +143,7 @@ summary(mod.NEE.lm1)
 ggplot(mydata, aes( x = WT, y = NEE, color = Climate)) + 
   geom_point( aes(pch = Climate), size=5, alpha=0.2,col = "black",bg = "black")+ 
   geom_smooth(method = 'lm', formula = y ~ poly(x, 2), se = T)+
-  stat_cor(data=mydata, method = "pearson",aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),label.x.npc = "center",label.y.npc = "bottom") +  
+  stat_cor(data=mydata, method = "Spearman",aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),label.x.npc = "center",label.y.npc = "bottom") +  
   theme(axis.text.x = element_text(size = 12, color = "black")) +  
   theme(axis.text.y = element_text(size = 12, color = "black")) +
   theme_bw()
@@ -163,7 +163,7 @@ confint(mod.CH4.lm1, level=0.95)
 ggplot(mydata, aes( x = WT, y = CH4, color = as.factor(Climate))) + 
   geom_point( aes(pch = as.factor(Climate)), size=5, alpha=0.2,col = "black",bg = "black")+ 
   geom_smooth(method = 'lm', formula = y ~ poly(x, 2), se = T)+
-  stat_cor(data=mydata, method = "pearson",aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),label.x.npc = "left",label.y.npc = "top") +  
+  stat_cor(data=mydata, method = "Spearman",aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),label.x.npc = "left",label.y.npc = "top") +  
   theme(axis.text.x = element_text(size = 12, color = "black")) +  
   theme(axis.text.y = element_text(size = 12, color = "black")) +
   theme_bw()
@@ -183,7 +183,7 @@ summary(mod.N2O.lm1)
 ggplot(mydata, aes( x = WT, y = N2O, color = as.factor(Climate))) + 
   geom_point( aes(pch = as.factor(Climate)), size=5, alpha=0.2,col = "black",bg = "black")+ 
   geom_smooth(method = 'lm', formula = y ~ poly(x, 2), se = T)+
-  stat_cor(data=mydata, method = "pearson",aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),label.x.npc = "center",label.y.npc = "top") +  
+  stat_cor(data=mydata, method = "Spearman",aes(label = paste(..rr.label.., ..p.label.., sep = "~`,`~")),label.x.npc = "center",label.y.npc = "top") +  
   theme(axis.text.x = element_text(size = 12, color = "black")) +  
   theme(axis.text.y = element_text(size = 12, color = "black")) +
   #scale_y_continuous(breaks=seq(0,10,1),position = "left") +
